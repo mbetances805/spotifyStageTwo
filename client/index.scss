@@ -56,16 +56,15 @@ body {
   }
 
    .overlay-container {
-     display: grid;
-     grid-template-columns: 1fr;
      position: absolute;
      display: none;
      background-color: white;
      color: black;
      z-index: 3;
      padding-bottom: 5em;
-     border: 0.1em solid black;
+     border: 1px solid lightgrey;
      text-align: center;
+     box-shadow: 1em 1em 3em 0em #c7c0c0;
    }
 
    .overlay-form {
