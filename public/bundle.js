@@ -23444,7 +23444,7 @@ _reactDom2.default.render(_react2.default.createElement(
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.deleteActivity = exports.postActivity = exports.fetchActivities = undefined;
+exports.postActivity = exports.fetchActivities = undefined;
 exports.default = reducer;
 
 var _axios = __webpack_require__(196);
@@ -23461,16 +23461,12 @@ function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr
 
 var GET_ACTIVITIES = 'GET_ACTIVITIES';
 var CREATE_ACTIVITY = 'CREATE_ACTIVITY';
-var REMOVE_ACTIVITY = 'REMOVE_ACTIVITY';
 
 var getActivities = function getActivities(activities) {
   return { type: GET_ACTIVITIES, activities: activities };
 };
 var createActivity = function createActivity(activity) {
   return { type: CREATE_ACTIVITY, activity: activity };
-};
-var removeActivity = function removeActivity() {
-  return { type: REMOVE_ACTIVITY };
 };
 
 var fetchActivities = exports.fetchActivities = function fetchActivities() {
@@ -23495,16 +23491,6 @@ var postActivity = exports.postActivity = function postActivity(activity) {
   };
 };
 
-var deleteActivity = exports.deleteActivity = function deleteActivity(activityId) {
-  return function (dispatch) {
-    return _axios2.default.delete('/api/activities/' + activityId).then(function () {
-      return dispatch(removeActivity(activityId));
-    }).catch(function (err) {
-      return console.log(err);
-    });
-  };
-};
-
 function reducer() {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
   var action = arguments[1];
@@ -23515,11 +23501,6 @@ function reducer() {
 
     case CREATE_ACTIVITY:
       return [].concat(_toConsumableArray(state), [action.activity]);
-
-    case REMOVE_ACTIVITY:
-      return [].concat(_toConsumableArray(state)).filter(function (activity) {
-        return activity.id !== action.activity;
-      });
 
     default:
       return state;
