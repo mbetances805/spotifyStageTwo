@@ -1,0 +1,145 @@
+body {
+  font-family: 'Encode Sans Semi Expanded', sans-serif;
+  width: 100%;
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  label {
+    display: block;
+  }
+
+  nav a {
+    display: inline-block;
+    margin: 1em;
+  }
+
+  form div {
+    margin: 1em;
+    display: inline-block;
+  }
+
+  input {
+    width: 25em;
+    height: 3em;
+    font-size: 1em;
+  }
+
+  textarea {
+    font-size: 1em;
+  }
+
+  .main-container {
+    display: grid;
+    grid-template-columns: 1fr 6fr;
+  }
+
+  .month-title, .year-title {
+    grid-column: 1;
+    font-size: 4em;
+    visibility: visible;
+  }
+
+  .month-container {
+    grid-column: 2;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: 0.1fr repeat(4, 1fr);
+  }
+
+  .day-num-container {
+    height: 14em;
+    border: 1px solid AliceBlue;
+    overflow-y: auto;
+  }
+
+   .overlay-container {
+     display: grid;
+     grid-template-columns: 1fr;
+     position: absolute;
+     display: none;
+     background-color: white;
+     color: black;
+     z-index: 3;
+     padding-bottom: 5em;
+     border: 0.1em solid black;
+     text-align: center;
+   }
+
+   .overlay-form {
+     letter-spacing: 0.2em;
+     font-size: 1em;
+     margin-left: auto;
+     margin-right: auto;
+     margin-top: 3em;
+   }
+
+   .save-button, .close-button {
+     width: 7em;
+     height: 4em;
+     background-color: black;
+     color: white;
+     outline: none;
+     font-weight: bold;
+     font-size: 1em;
+   }
+
+   .save-button:disabled {
+     background-color: grey;
+   }
+
+   .calendar-activity {
+     background-color: lightblue;
+     font-size: 1em;
+     text-align: center;
+     border: 1px solid AliceBlue;
+     z-index: 2;
+   }
+
+   #title-field, #location-field, #description-field,
+   #startTime-field, #endTime-field {
+     margin: 2em;
+     border: 0.1em solid black;
+   }
+
+   @media only screen and (max-width: 425px) {
+     .month-title {
+       font-size: 1em;
+       grid-row: 1;
+       margin: auto;
+     }
+
+     .year-title {
+       visibility: hidden;
+     }
+
+     .month-container {
+       grid-row: 2;
+       grid-column: 1;
+     }
+
+     .main-container {
+       grid-template-rows: 1fr;
+       grid-template-columns: 1fr;
+     }
+
+     .calendar-activity span {
+       font-size: 0.8em;
+     }
+
+     label {
+       font-size: 1em;
+     }
+
+     input {
+       width: 15em;
+       height: 3em;
+     }
+
+     textarea {
+       width: 15em;
+     }
+   }
+ }
